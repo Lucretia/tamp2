@@ -7,7 +7,7 @@
 
 ###############################################################################
 # These variables should be edited depending on the platform you are building
-# for bare bones for.
+# for TAMP for.
 ###############################################################################
 BOARD		=	pc
 BUILD		=	debug
@@ -74,17 +74,17 @@ endif
 endif
 
 # The final output filename.
-TARGET		=	$(OUTDIR)bare_bones-$(ARCH).elf
+TARGET		=	$(OUTDIR)tamp-$(ARCH).elf
 
 ###############################################################################
 # Rules.
 ###############################################################################
 all: $(TARGET)
 
-$(TARGET): $(OBJS) src/bare_bones.adb
+$(TARGET): $(OBJS) src/tamp.adb
 	$(TOOL_PREFIX)$(GNATMAKE) --RTS=$(RTS_DIR) \
 		-XBoard=$(BOARD) -XBuild=$(BUILD) -XBug=$(BUG) \
-		-Pbare_bones.gpr
+		-Ptamp.gpr
 
 obj/startup.o: src/$(BOARD)/startup.s
 	$(AS) $(AS_FLAGS) src/$(BOARD)/startup.s -o obj/startup.o

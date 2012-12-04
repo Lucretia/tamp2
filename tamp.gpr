@@ -1,10 +1,10 @@
 --                              -*- Mode: GPR -*-
---  Filename        : bare_bones.gpr
+--  Filename        : tamp.gpr
 --  Description     : GNAT make project file for the kernel.
 --  Author          : Luke A. Guest
 --  Created On      : Thu Jun 14 11:59:53 2012
 --  Licence         : See LICENCE in the root directory.
-project Bare_Bones is
+project TAMP is
    type Build_Name is ("debug", "release");
    type Bug_Name   is ("bug", "clean");
    type Board_Name is ("pc", "rpi");
@@ -38,7 +38,7 @@ project Bare_Bones is
 
    for Object_Dir use "obj";
    for Exec_Dir use Out_Dir;
-   for Main use ("bare_bones.adb");
+   for Main use ("tamp.adb");
 
    package Builder is
       Basic_Switches :=
@@ -50,7 +50,7 @@ project Bare_Bones is
       Builder_Bug_Switches   := ("");
       Builder_Board_Switches := ("");
 
-      for Executable ("bare_bones.adb") use "bare_bones-" & Arch & ".elf";
+      for Executable ("tamp.adb") use "tamp-" & Arch & ".elf";
 
       case Build is
          when "debug" =>
@@ -153,4 +153,4 @@ project Bare_Bones is
         Basic_Switches & Linker_Build_Switches & Linker_Bug_Switches &
         Linker_Board_Switches;
    end Linker;
-end Bare_Bones;
+end TAMP;
