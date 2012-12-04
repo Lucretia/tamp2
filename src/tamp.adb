@@ -1,5 +1,5 @@
 --                              -*- Mode: Ada -*-
---  Filename        : bare_bones.adb
+--  Filename        : tamp.adb
 --  Description     : A "hello world" style OS kernel written in Ada.
 --  Author          : Luke A. Guest
 --  Created On      : Thu Jun 14 11:59:53 2012
@@ -12,13 +12,13 @@ with Multiboot; use Multiboot;
 
 use type Multiboot.Magic_Values;
 
-procedure Bare_Bones is
+procedure TAMP is
    Line : Screen_Height_Range := Screen_Height_Range'First;
 begin
    null;
    Clear;
 
-   Put ("Hello, bare bones in Ada",
+   Put ("Hello, TAMP in Ada",
         Screen_Width_Range'First,
         Line);
 
@@ -166,5 +166,5 @@ begin
 --        null;
       --  when Console.TE =>
    --     Put ("TE caught", 1, 2);
-end Bare_Bones;
-pragma No_Return (Bare_Bones);
+end TAMP;
+pragma No_Return (TAMP);
